@@ -1,0 +1,23 @@
+@charset "ISO-8859-1";
+.paging1 {
+	display: inline-block;
+    vertical-align: middle;
+    width: 30px;
+    height: 30px;
+    font-weight: 400;
+    padding-top: 11px;
+    padding-bottom: 34px;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+    font-weight: 500;
+}
+.paging2 {
+	display: inline-block;
+	vertical-align: middle;
+    width: 30px;
+    height: 30px;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+    padding-bottom: 45px;
+    font-weight: 500;
+}

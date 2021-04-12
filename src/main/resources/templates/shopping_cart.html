@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/83916bebf9.js" crossorigin="anonymous"></script>
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/cart.css">
+
+</head>
+<body>
+    
+
+    <main role="main">
+        <div class="container mt-4">
+            
+            <h1 style="margin-bottom: 2rem" class="text-center">Giỏ hàng</h1>
+            <div class="row">
+                <div class="col col-md-12">
+                    <table style="margin-bottom: 2rem" class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>STT</th>
+                                <th>Ảnh sản phẩm</th>
+                                <th>Tên sản phẩm</th>
+                                <th>Số lượng</th>
+                                <th>Đơn giá</th>
+                                <th>Thành tiền</th>
+                                <th>Hành động</th>
+                            </tr>
+                        </thead>
+                        <tbody id="datarow">
+                            <tr th:each= cartitem:${session.cart}>
+                                <td>1</td>
+                                <td>
+                                    <img src="/imgs/iphone-12-pro-max-bac.jpg" class="hinhdaidien">
+                                </td>
+                                <td th:text="${cartitem.key.name}"></td>
+                                <td class="text-right" th:text="${cartitem.value}"></td>
+                                <td class="text-right" th:text="${cartitem.key.price+' $'}"></td>
+                                <td class="text-right" th:with="var=${cartitem.key.price*cartitem.value}">
+                                	<p th:text="${var+' $'}"></p>
+                                </td>
+                                <td>
+                                    <!-- Nút xóa, bấm vào sẽ xóa thông tin dựa vào khóa chính sp -->
+                                    <a th:href="@{'/deleteCartItem/'+${cartitem.key.id}}" id="delete_1" data-sp-ma="2" class="btn btn-danger btn-delete-sanpham">
+                                        <i class="fa fa-trash" aria-hidden="true"></i> Xóa </a>
+                                </td>
+                            </tr>
+                            
+                        </tbody>
+                    </table>
+                    
+                    <a href="/" class="btn btn-warning btn-md"><i class="fa fa-arrow-left"
+                            aria-hidden="true"></i>&nbsp;Quay về trang chủ</a>
+                    <a th:if="${!session.cart.isEmpty}" href="checkout" class="btn btn-primary btn-md">
+                    <i class="fa fa-check" aria-hidden="true"></i>&nbsp;Thanh toán</a>
+                    
+                </div>
+            </div>
+        </div>
+    </main>
+
+  
+
+
+</body>
+</html>

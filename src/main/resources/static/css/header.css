@@ -1,0 +1,48 @@
+@charset "ISO-8859-1";
+.top-bar{
+    background-color: pink;
+    padding: 0.2rem 0;
+}
+.top-bar__social-list{
+    display: flex;
+    flex-flow: nowrap;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+.top-bar__social-list>li{
+    margin: 0.5rem;
+}
+.top-bar__social-list>li>.top-bar__social-list__insta{
+    color: deeppink;
+}
+.top-bar__links{
+    margin: 0.5rem;
+}
+.top-bar__links>span{
+    color:rgb(10, 10, 170);
+}
+.nav-bar{
+    padding: 0.5rem 0;
+}
+.nav-bar__search-form__search{
+    width:20rem !important;
+    margin: 1rem;
+}
+.nav-bar__cart{
+    margin: 1rem 0;
+}
+.nav-bar__cart>a>span{
+    color: white;
+}
+.nav-bar__cart>a{
+    padding: 9px;
+    border-radius: 5px;
+    color: white;
+    background-color: rgb(0, 132, 255);
+    text-decoration: none;
+}
+.nav-bar__nav{
+    background-color: rgb(250, 71, 71);
+}

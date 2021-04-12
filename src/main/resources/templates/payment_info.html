@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/83916bebf9.js" crossorigin="anonymous"></script>
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<title>Payment</title>
+</head>
+<body>
+	<div class="container">
+	<h1 class="text-center m-4">Payment Info</h1>
+		<div class="row">
+			<div class="col-6" style="border: 1px solid">
+				<h2 class="text-center">Your Information</h2>
+				<p>Account ID: <span th:text="${session.currentUser.id}"></span></p>
+				
+				<p>Name: <span th:text="${session.currentUser.first_name+' ' + session.currentUser.last_name}"></span></p>
+				<p>Address: <span th:text="${session.currentUser.address}"></span> </p>
+				<p>Your Phone:  <span th:text="${session.currentUser.phone}"></span></p>
+			</div>
+			<div class="col-6" style="border: 1px solid">
+				<h2 class="text-center">Billing Detail</h2>
+				<th:block th:each= cartitem:${session.cart}>
+					<p>Tên sản phẩm: <span th:text="${cartitem.key.name}"></span> </p>
+					<p>Số lượng: <span th:text="${cartitem.value}"></span></p>
+					<p>Giá: <span th:text="${cartitem.key.price}"></span> $</p>
+				</th:block>
+			</div>
+	</div>
+	<br>
+	<h5 style="text-align: right;">Total money: <span th:text="${session.order.amount}"></span> $</h5>
+	<br>
+	<a style="float: right;" href="/checkoutDone" class="btn btn-primary">
+	<i class="far fa-money-bill-alt" aria-hidden="true"></i>&nbsp;&nbsp;Xác nhận thanh toán</a>
+	</div>
+	
+</body>
+</html>

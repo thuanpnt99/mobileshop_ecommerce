@@ -1,0 +1,11 @@
+@charset "ISO-8859-1";
+
+.col-4 ul li{
+	list-style-type: none;
+	color: white;
+	text-align: center;
+}
+
+footer{
+	background-color: #000040;
+}
