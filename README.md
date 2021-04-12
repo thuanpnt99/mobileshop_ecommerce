@@ -1,2 +1,2 @@
-# mobileshop_ecommerce-using-spring-boot
+# mobileshop_ecommerce
 springboot, spring data jpa, spring security, thymeleaf
